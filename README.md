@@ -1,3 +1,34 @@
+# Accompanying repository for "Generation of Fast Finite Field Arithmetic for Cortex-M4 with ECDH and SQIsign Applications"
+
+This repository contains the sources relative to the "Generation of Fast Finite Field Arithmetic for Cortex-M4 with ECDH
+and SQIsign Applications" paper published in TCHES vol. 2025 no. 4. Sources are integrated in a fork of the pqm4
+project. Below is the original pqm4 README.
+
+Clone the repo with the `--recurse-submodules` git option.  
+See the **pqm4** section below for all the prerequisites to run the benchmarks.
+
+
+The relevant source code cited in the paper is under the following directories:
+
+- crypto_sign/sqisign1d_lvl1
+- crypto_sign/sqisign1d_lvl1_p248_smart
+- crypto_sign/sqisign1d_lvl1_p248_uncompressed
+- crypto_sign/sqisign1d_lvl3
+- crypto_sign/sqisign1d_lvl5
+- crypto_sign/sqisign2d_lvl1
+- crypto_sign/sqisign2d_lvl3
+- crypto_sign/sqisign2d_lvl5
+
+To reproduce the benchmarks in the paper, run the following command, replacing `/dev/ttyACM0` with the device name for
+the USB-to-RS232 converter of the NUCLEO-L4R5ZI board:
+
+```
+./benchmarks.py --nohashing -p nucleo-l4r5zi -u /dev/ttyACM0 \
+sqisign1d_lvl{1,1_p248_{smart,uncompressed},3,5} sqisign2d_lvl{1,3,5}
+```
+
+### Below is the original pqm4 README
+
 # pqm4
 Collection of post-quantum cryptographic algorithms for the ARM Cortex-M4
 

@@ -14,4 +14,6 @@ elf/boardtest.elf: LDSCRIPT=ldscripts/$(PLATFORM)-ramtest.ld
 elf/boardtest-fast.elf: CPPFLAGS+=-DSRAM_TIMING_TEST -DHAS_SRAM2 -DHAS_SRAM3
 elf/boardtest-fast.elf: LDSCRIPT=ldscripts/$(PLATFORM)-ramtest.ld
 
+elf/crypto_sign_sqisign%_fastram_speed.elf: LDSCRIPT=ldscripts/$(PLATFORM)_fastram.ld
+
 include mk/opencm3.mk
